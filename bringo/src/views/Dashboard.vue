@@ -45,29 +45,49 @@
                                     <v-chip>Literature</v-chip>
                                     <v-chip>Book Illustration</v-chip>
                                     <v-chip>Roald Dahl</v-chip>
+                                    <v-fab-transition>
                                     <v-chip 
                                         v-if="editProfile"
+                                        id="newChipButton"
+                                        @click="displayNewChip()"
                                     >
-                                        +
+                                        <input 
+                                            type="text" 
+                                            id="newChipInput" 
+                                            placeholder="Add New Label Here" 
+                                            style="display:none"
+                                            @keydown.enter="addNewChip()"
+                                        >
+                                        <v-icon>mdi-plus</v-icon>
                                     </v-chip>
+                                    </v-fab-transition>
                                 </v-row>
                             </v-chip-group>
                         </v-card-text>
                     </v-card>
-                    <v-spacer></v-spacer>
                     <v-row justify="center">
-                        <!--Forum or Whatever-->
+                        <!--Blog-->
                         <v-col cols="7">
-                            <v-card class="mx-auto my-12">
-                                <v-card-title>Forum/Bingo/Other Community Thing</v-card-title>
+                            <v-card class="mx-auto my-12" height="300px">
+                                <v-card-title>Blog</v-card-title>
+                                <v-card-text>My Stories</v-card-text>
+                                <v-spacer></v-spacer>
+                                <v-btn>See Previous Blogs</v-btn>
+                                <v-btn>Write a New Entry</v-btn>
+                                <v-spacer></v-spacer>
+                                <v-card-text>Community Highlights</v-card-text>
+                                <v-spacer></v-spacer>
+                                <v-btn>Browse Other Blogs</v-btn>
+                                <v-btn>Random Suggestion: Surprise Me</v-btn>
                             </v-card>
                         </v-col>
                         <!--Sessions-->
                         <v-col cols="5">
-                            <v-card class="mx-auto my-12">
+                            <v-card class="mx-auto my-12" height="300px">
                                 <v-card-title>Schedule Discussion Sessions</v-card-title>
-                                <v-btn>View Incoming Call Requests</v-btn>
-                                <v-btn>Go to Directory: Book New Call</v-btn>
+                                <v-btn @click="alertCallRequests()">View Incoming Call Requests</v-btn>
+                                <v-spacer></v-spacer>
+                                <v-btn to="directory">Go to Directory: Book New Call</v-btn>
                             </v-card>
                         </v-col>
                     </v-row>
@@ -91,22 +111,57 @@ export default {
         }
     },
     methods: {
-        toggleEdit: function () {
+        toggleEdit: function() {
             if (this.editProfile) {
                 this.editProfile = false
             }
             else {
                 this.editProfile = true
             }
-        }
+        },
+        //Profile Methods
+        displayNewChip: function() {
+            var input = document.getElementById('newChipInput');
+            if (input.style.display == 'none') {
+                input.style.display = 'block';
+                input.focus();
+            }
+        },
+        addNewChip: function() {
+            var input = document.getElementById('newChipInput');
+            // If no input value, give alert
+            if (!input.value) {
+                // We need a more user friendly message for seniors than this though
+                alert("Cannot add a blank interest. Please type something before pressing enter")
+                input.focus();
+            }
+            else {
+                alert("Good job m8");
+                input.value = "";
+                input.style.display = 'none';
+            }
+        },
+        // Schedule Methods
+        alertCallRequests: function() {
+            alert("No Incoming Call Requests");
+        },
     }
 }
 </script>
+
 <style>
     h1 {
-        font-family: Helvetica
+        font-family: Helvetica;
     }
     .container {
-        max-width: 1000px
+        max-width: 1000px;
     }
+    #newChipInput {
+        color: #ffffff;
+        outline: none;
+    }
+    #newChipInput::placeholder {
+        color: #c099ff;
+    }
+
 </style>
