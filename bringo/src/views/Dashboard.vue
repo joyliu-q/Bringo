@@ -15,9 +15,16 @@
                             indeterminate
                         ></v-progress-linear>
                     </template>
-                    <v-card-title>Your Profile</v-card-title>
-                    <v-spacer></v-spacer>
-                    <v-btn ripple=True>Edit</v-btn>
+                    <v-card-title>
+                        Your Profile
+                        <v-spacer></v-spacer>
+                        <!--Edit button for Profile-->
+                        <v-btn 
+                            ripple=True
+                        >
+                            Edit Profile Info
+                        </v-btn>
+                    </v-card-title>
                     <v-card-text>
                         <v-row
                             align="center"
@@ -36,12 +43,31 @@
                             active-class="deep-purple accent-4 white--text"
                             column
                         >
-                            <v-chip>Literature</v-chip>
-                            <v-chip>Book Illustration</v-chip>
-                            <v-chip>Roald Dahl</v-chip>
-                            <v-chip>+</v-chip>
+                            <v-row align="center">
+                                <v-card-title>Interests: </v-card-title>
+                                <v-chip>Literature</v-chip>
+                                <v-chip>Book Illustration</v-chip>
+                                <v-chip>Roald Dahl</v-chip>
+                                <v-chip>+</v-chip>
+                            </v-row>
                         </v-chip-group>
                     </v-card-text>
+                </v-card>
+                <v-spacer></v-spacer>
+                <!--Forum or Whatever-->
+                <v-card class="mx-auto my-12" max-width="500">
+                    <v-card-title>Forum/Bingo/Other Community Thing</v-card-title>
+                </v-card>
+                <!--Sessions-->
+                <v-card class="mx-auto my-12" max-width="500">
+                    <v-card-title>Schedule Discussion Sessions</v-card-title>
+                    <v-card-actions class="justify-center">
+                        <!--View Incoming Session Requests-->
+                        <v-btn ripple=True>View Incoming Call Requests</v-btn>
+                        <v-spacer></v-spacer>
+                        <!--Book New Call Session-->
+                        <v-btn ripple=True>Go to Directory: Book New Call</v-btn>
+                    </v-card-actions>
                 </v-card>
             </v-content>
         </div>

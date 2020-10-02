@@ -1,7 +1,7 @@
 <template>
   <v-footer
     height="auto"
-    color="primary lighten-1" app
+    color="primary lighten-1"
   >
   <v-spacer></v-spacer>
     <v-layout
