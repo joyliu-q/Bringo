@@ -7,7 +7,12 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Login',
-    component:() => import(/* webpackChunkName: "about" */ '../views/Login.vue')
+    component:() => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
+    meta: {
+      breadcrumb: [
+        { }
+      ]
+    }
   },
   {
     path: '/dashboard',
@@ -15,7 +20,12 @@ Vue.use(VueRouter)
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Dashboard.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Dashboard.vue'),
+    meta: {
+      breadcrumb: [
+        { name: 'Dashboard' }
+      ]
+    }
   },
   {
     path: '/directory',
@@ -23,7 +33,13 @@ Vue.use(VueRouter)
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Directory.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Directory.vue'),
+    meta: {
+      breadcrumb: [
+        { name: 'Dashboard', link: 'dashboard' },
+        { name: 'Directory' }
+      ]
+    }
   },
   {
     path: '/calendar',
@@ -31,7 +47,14 @@ Vue.use(VueRouter)
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Calendar.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Calendar.vue'),
+    meta: {
+      breadcrumb: [
+        { name: 'Dashboard' , link: 'dashboard' },
+        { name: 'Directory' , link: 'directory' },
+        { name: 'Calendar' }
+      ]
+    }
   },
   {
     path: '/calling',
@@ -39,7 +62,15 @@ Vue.use(VueRouter)
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Calling.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/Calling.vue'),
+    meta: {
+      breadcrumb: [
+        { name: 'Dashboard' , link: 'dashboard' },
+        { name: 'Directory' , link: 'directory' },
+        { name: 'Calendar' , link: 'calendar' },
+        { name: 'Calling' }
+      ]
+    }
   },
 
 ]

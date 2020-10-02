@@ -1,12 +1,74 @@
 <template>
   <div class="navigator" role="navigation">
-    <v-app-bar app>
-            <v-toolbar-title>Dashboard</v-toolbar-title>
-            <v-breadcrumbs></v-breadcrumbs>
+    <v-app-bar app class = "light-blue white--text font-weight-bold">
+            <v-toolbar-title>Name</v-toolbar-title>
+            <!--Breadcrumb-->
+            <div class="breadcrumb">
+              <ul>
+                <li
+                  v-for="(breadcrumb, idx) in breadcrumbList"
+                  :key="idx"
+                  @click="routeTo(idx)"
+                  :class="{'linked': !!breadcrumb.link}">
+                  {{ breadcrumb.name }}
+                </li>
+              </ul>
+            </div>
         </v-app-bar>
   </div>
 </template>
 
-<style>
 
+<script>
+export default {
+  name: 'Breadcrumb',
+  data () {
+    return {
+      breadcrumbList: []
+    }
+  },
+  mounted () { this.updateList() },
+  watch: { '$route' () { this.updateList() } },
+  methods: {
+    routeTo (pRouteTo) {
+      if (this.breadcrumbList[pRouteTo].link) this.$router.push(this.breadcrumbList[pRouteTo].link)
+    },
+    updateList () { this.breadcrumbList = this.$route.meta.breadcrumb }
+  }
+}
+</script>
+
+<style scoped>
+  .breadcrumb {}
+  ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul > li {
+    display: flex;
+    float: left;
+    height: 10px;
+    width: auto;
+    color: $default;
+    font-weight: bold;
+    font-size: .8em;
+    cursor: default;
+    align-items: center;
+  }
+  ul > li:not(:last-child)::after {
+    content: '/';
+    float: right;
+    font-size: .8em;
+    margin: 0 .5em;
+    color: $light-default;
+    cursor: default;
+  }
+  .linked {
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: normal;
+  }
 </style>
