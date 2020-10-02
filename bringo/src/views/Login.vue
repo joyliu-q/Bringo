@@ -24,6 +24,7 @@
             sm="8"
             md="4"
           >
+          <router-link to="dashboard"> To dashboard(for draft use)</router-link>
           <router-link to="calendar"> To calendar(for draft use)</router-link>
           <router-link to="directory"> To directory(for draft use)</router-link>
           <router-link to="calling"> To calling(for draft use)</router-link>
