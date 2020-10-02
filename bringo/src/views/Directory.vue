@@ -4,12 +4,18 @@
     <v-app class="indigo lighten-5">
         <v-main>
         <v-container>
-        <v-card>
-        <v-card-title id="Header">Schedule a videoChat!
+        <v-row>
+            <v-col>
+                <h5 id="Header">Schedule a Videocall with another!</h5>
+            </v-col>
+        </v-row>
+        
+        <v-row>
             <v-spacer></v-spacer>
-          <v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line hide-details
-          ></v-text-field>
-        </v-card-title>
+            <v-col cols="2">
+            <v-select :items="items" outlined label="Filter By" dense></v-select>
+            </v-col>
+        </v-row>
             <v-row  no-gutters>
                 <v-col v-for="n in 4" :key="n">
                     <v-card class="mx-auto" max-width="434" tile>
@@ -33,7 +39,6 @@
                     </v-card>
                 </v-col>
             </v-row>
-        </v-card>
         </v-container>
         </v-main>
     </v-app>
@@ -55,19 +60,22 @@ export default {
         'center',
         'end',
       ],
+      items: ['Age','Volunteer', 'Peers'],
     }),
 }
 </script>
 
 <style scoped>
     #Header{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
         align-items: center;
         text-align: center;
         width: 1258px;
         height: 67px;
         left: 91px;
         top: 106px;
-        bottom: 106px;
 
         font-family: Roboto;
         font-style: normal;
