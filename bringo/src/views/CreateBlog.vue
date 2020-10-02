@@ -8,7 +8,7 @@
                         :loading="loading"
                         class="mx-auto my-12"
                         max-width="1000"
-                        height = "500px"
+                        height = "auto"
                     >
                         <v-card-title>
                             Create New Blog Entry
@@ -51,32 +51,33 @@
                                     </v-fab-transition>
                                 </v-row>
                             </v-chip-group>
-                            <v-textarea
-                                solo
-                                name="input-7-4"
-                                label="Write your story here or tell it using our speech-to-text button below."
-                            ></v-textarea>
-                            <v-card-text>
-                                <!--Speech to Text Button-->
-                                <v-btn 
-                                    flat color="deep-purple accent-4 white--text" 
-                                    @click="toggleEdit()"
-                                >
-                                    <v-icon>{{ editProfile ? 'mdi-microphone-outline' : 'mdi-microphone'}}</v-icon>
-                                    {{ editProfile ? 'Pause/Stop: I\'m Finished' : 'Speech to Text: Too Tired to Type? Tell Your Story' }}
-                                </v-btn>
-                                <!--Publish Button-->
-                                <v-btn 
-                                    flat color="deep-purple accent-4 white--text" 
-                                    @click="toggleEdit()"
-                                    justify="right"
-                                >
-                                    Publish Blog Entry
-                                </v-btn>
-                            </v-card-text>
+                            <!--Speech to Text Button-->
+                            <v-btn 
+                                flat color="deep-purple accent-4 white--text" 
+                                @click="toggleEdit()"
+                                style="float: left"
+                            >
+                                <v-icon>{{ editProfile ? 'mdi-microphone-outline' : 'mdi-microphone'}}</v-icon>
+                                {{ editProfile ? 'Pause/Stop: I\'m Finished' : 'Speech to Text: Too Tired to Type? Tell Your Story' }}
+                            </v-btn>
+                            <!--Publish Button-->
+                            <v-btn 
+                                flat color="deep-purple accent-4 white--text" 
+                                style="float: right"
+                            >
+                                Publish Blog Entry
+                            </v-btn>
                         </v-card-text>
-                        <v-divider class="mx-4"></v-divider>
                     </v-card>
+                    <v-textarea
+                        solo
+                        name="input-7-4"
+                        label="Write your story here or tell it using our speech-to-text button below."
+                        rows="10"
+                        auto-grow
+                        counter
+                        :value="comment"
+                    ></v-textarea>
                 </v-container>
             </v-content>
         </div>
