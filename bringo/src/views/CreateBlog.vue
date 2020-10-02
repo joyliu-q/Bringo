@@ -13,13 +13,6 @@
                         <v-card-title>
                             Create New Blog Entry
                             <v-spacer></v-spacer>
-                            <!--Edit button for Profile-->
-                            <v-btn 
-                                flat color="deep-purple accent-4 white--text" 
-                                @click="toggleEdit()"
-                            >
-                                {{ editProfile ? 'Confirm Profile Changes' : 'Edit Profile Info' }}
-                            </v-btn>
                         </v-card-title>
                         <v-card-text>
                             <v-chip-group
@@ -60,13 +53,6 @@
                                 <v-icon>{{ editProfile ? 'mdi-microphone-outline' : 'mdi-microphone'}}</v-icon>
                                 {{ editProfile ? 'Pause/Stop: I\'m Finished' : 'Speech to Text: Too Tired to Type? Tell Your Story' }}
                             </v-btn>
-                            <!--Publish Button-->
-                            <v-btn 
-                                flat color="deep-purple accent-4 white--text" 
-                                style="float: right"
-                            >
-                                Publish Blog Entry
-                            </v-btn>
                         </v-card-text>
                     </v-card>
                     <v-textarea
@@ -78,6 +64,13 @@
                         counter
                         :value="comment"
                     ></v-textarea>
+                    <!--Publish Button-->
+                    <v-btn large 
+                        flat color="deep-purple accent-4 white--text" 
+                        style="float: right"
+                    >
+                        Publish Blog Entry
+                    </v-btn>
                 </v-container>
             </v-content>
         </div>
