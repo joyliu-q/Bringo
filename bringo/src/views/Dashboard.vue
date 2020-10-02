@@ -42,9 +42,10 @@
                             >
                                 <v-row align="center">
                                     <v-card-title>Interests: </v-card-title>
-                                    <v-chip>Literature</v-chip>
-                                    <v-chip>Book Illustration</v-chip>
-                                    <v-chip>Roald Dahl</v-chip>
+                                    <v-chip v-for="interest in interests" :key="interest"
+                                    >
+                                        {{interest}}
+                                    </v-chip>
                                     <v-fab-transition>
                                     <v-chip 
                                         v-if="editProfile"
@@ -107,7 +108,8 @@ export default {
     },
     data: function () {
         return {
-            editProfile: false
+            editProfile: false,
+            interests: ["Literature", "Book Illustration", "Roald Dahl"],
         }
     },
     methods: {
@@ -130,13 +132,13 @@ export default {
         addNewChip: function() {
             var input = document.getElementById('newChipInput');
             // If no input value, give alert
-            if (!input.value) {
+            if (!input.value || this.interests.indexOf(input.value) != -1) {
                 // We need a more user friendly message for seniors than this though
-                alert("Cannot add a blank interest. Please type something before pressing enter")
+                alert("Cannot add a duplicate or blank interest. Please type something before pressing enter")
                 input.focus();
-            }
+            } 
             else {
-                alert("Good job m8");
+                this.interests.push(input.value);
                 input.value = "";
                 input.style.display = 'none';
             }
