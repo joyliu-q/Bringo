@@ -8,19 +8,15 @@
                     class="mx-auto my-12"
                     max-width="1000"
                 >
-                    <template slot="progress">
-                        <v-progress-linear
-                            color="deep-purple"
-                            height="10"
-                            indeterminate
-                        ></v-progress-linear>
-                    </template>
                     <v-card-title>
                         Your Profile
                         <v-spacer></v-spacer>
                         <!--Edit button for Profile-->
                         <v-btn 
-                            ripple=True
+                            v-if="!edit_profile"
+                            flat color="deep-purple accent-4 white--text" 
+                            click="edit_profile=true"
+                            
                         >
                             Edit Profile Info
                         </v-btn>
@@ -48,7 +44,10 @@
                                 <v-chip>Literature</v-chip>
                                 <v-chip>Book Illustration</v-chip>
                                 <v-chip>Roald Dahl</v-chip>
-                                <v-chip>+</v-chip>
+                                <v-chip
+                                >
+                                    +
+                                </v-chip>
                             </v-row>
                         </v-chip-group>
                     </v-card-text>
