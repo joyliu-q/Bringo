@@ -7,6 +7,16 @@ Vue.use(VueRouter)
 
   const routes = [
   {
+    path: '/test',
+    name: 'Test',
+    component:() => import(/* webpackChunkName: "about" */ '../views/Test.vue'),
+    meta: {
+      breadcrumb: [
+        { }
+      ]
+    }
+  },
+  {
     path: '/',
     name: 'Login',
     component:() => import(/* webpackChunkName: "about" */ '../views/Login.vue'),
