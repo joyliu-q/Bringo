@@ -4,6 +4,7 @@
 
 
 <script>
+import RTCMultiConnection from 'rtcmulticonnection';
 export default {
     name: 'Calling'
 }
