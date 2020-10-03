@@ -49,7 +49,7 @@ export default {
 <style lang="scss">
   #app{
     background-color:rgb(215, 238, 245);
-        font-family: Helvetica;
+        font-family: Open-Sans;
     
   }
 </style>

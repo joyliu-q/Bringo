@@ -26,10 +26,10 @@
           <v-container>
       </v-container>
         
-          <p style="font-size:40px; font-weight:bold; text-align:center">
+          <p style=" color:#03a9f4; font-size:65px; font-weight:bold; text-align:center">
           Bridge
           </p>
-       <img src="../assets/community1.png">
+       <img class="title-img" src="../assets/community1.png"/>
 
           <v-container>
       </v-container>
@@ -102,5 +102,11 @@ export default {
 <style scoped>
 #Template1{
         font-family: Open-Sans;
+    }
+    .title-img {
+      height: 200px;
+      width: 60%;
+      float:center;
+      margin-left:20%;
     }
 </style>
