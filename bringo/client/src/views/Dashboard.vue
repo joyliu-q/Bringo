@@ -1,8 +1,28 @@
-
 <template>
     <wrapper>
         <v-content>
-            <v-overlay :value="overlay"></v-overlay>
+            <v-overlay :value="overlay">
+                <v-card id="t1">
+                    <v-card-title>Hi! Welcome to Bringo.</v-card-title>
+                    <v-card-text>Before we start, let me give you a rundown of how our platform works!</v-card-text>
+                </v-card>
+                <v-card id="t2">
+                    <v-card-title>Dashboard</v-card-title>
+                    <v-card-text>This is the dashboard page. This is the page you will see after logging on. On the dashboard page, there are 3 main sections: profile, blog, and social.</v-card-text>
+                </v-card>
+                <v-card id="t3">
+                    <v-card-title>Profile</v-card-title>
+                    <v-card-text>In the profile section, you can view and edit your information, such as your name, age, and interests. With this information, other people can find you through the directory and we can better pair you up with others for calls and social events.</v-card-text>
+                </v-card>
+                <v-card id="t4">
+                    <v-card-title>Profile</v-card-title>
+                    <v-card-text>To complete the profile, we still need a few details from you. Let's fill it out together!</v-card-text>
+                </v-card>
+                <v-card id="t5">
+                    <v-card-title>Dashboard</v-card-title>
+                    <v-card-text>This is the dashboard page. When you registered for an account, we asked for your name, age, and interests. That infomation can be found in the profile section!</v-card-text>
+                </v-card>
+            </v-overlay>
             <v-container>
                 <!--Profile-->
                 <v-card
@@ -74,7 +94,7 @@
                             <v-card-title>Blog</v-card-title>
                             <v-card-text>My Stories</v-card-text>
                             <v-spacer></v-spacer>
-                            <v-btn>See Previous Blogs</v-btn>
+                            <v-btn>View Blog Page</v-btn>
                             <v-btn to="create_blog">Write a New Entry</v-btn>
                             <v-spacer></v-spacer>
                             <v-card-text>Community Highlights</v-card-text>
@@ -87,9 +107,9 @@
                     <v-col cols="5">
                         <v-card class="mx-auto my-12" height="300px">
                             <v-card-title>Schedule Discussion Sessions</v-card-title>
-                            <v-btn @click="alertCallRequests()">View Incoming Call Requests</v-btn>
+                            <v-btn @click="alertCallRequests()">View Upcoming Calls</v-btn>
                             <v-spacer></v-spacer>
-                            <v-btn to="directory">Go to Directory: Book New Call</v-btn>
+                            <v-btn to="directory">User Directory: Book New Call</v-btn>
                         </v-card>
                     </v-col>
                 </v-row>
