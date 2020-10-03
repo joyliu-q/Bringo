@@ -69,7 +69,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                    <v-btn flat color="indigo primary-1">
+                    <v-btn to="dashboard" flat color="indigo primary-1">
                     <span class="white--text title">Log in</span>
                     <v-icon right class="white">mdi-login</v-icon>
                     </v-btn>
