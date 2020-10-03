@@ -94,7 +94,7 @@ export default {
     },
     methods: {
         toggleSpeech: async function() {
-            var response = await fetch('http://localhost:3002/api/speech-to-text/token');
+            var response = await fetch('http://localhost:8080/api/speech-to-text/token');
             var transcriptToken = await response.text();
             // If speech-to-text already on, then turn off
             if (this.speechOn) {
