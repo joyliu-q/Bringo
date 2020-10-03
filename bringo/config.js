@@ -1,6 +1,4 @@
 module.exports = {
-    mongoUri: process.env.MONGO_URI,
+    mongoUri:`mongodb+srv://user:nevergonnagiveyouup@cluster0.1ryjy.mongodb.net/user_info?retryWrites=true&w=majority`,
     PORT: process.env.PORT || 3001,
 }
-
-const MONGO_URI= "mongodb+srv://user:nevergonnagiveyouup@cluster0.1ryjy.mongodb.net/user_info?retryWrites=true&w=majority";
