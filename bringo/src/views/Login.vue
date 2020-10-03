@@ -1,19 +1,11 @@
-<template>
+<template id = "Template1">
 <wrapper>
   <v-app class="indigo lighten-5">
     <v-content>
       <v-container
         fluid
       >
-        <v-row class="mb-10">
-        <v-img
-            alt="BlackStoneValleyPrep Logo"
-            contain
-            src="../assets/logo.png"
-            height="240"
-            pb-4 mb-20
-            />
-        </v-row>
+
         <v-row
           align="center"
           justify="center"
@@ -24,11 +16,38 @@
             sm="8"
             md="4"
           >
+          <template>
+  <v-card
+    class="d-flex pa-2"
+    outlined
+    tile
+  >
+
+    <v-container>
+      </v-container>
+          <v-container>
+      </v-container>
+          <v-container>
+      </v-container>
+          <v-container>
+          <p class="display-3">
+          Bringo
+          </p>
+      </v-container>
+          <v-container>
+      </v-container>
+          <v-container>
+      </v-container>
+          <v-container>
+      </v-container>
+
+  </v-card>
+</template>
           <router-link to="dashboard"> To dashboard(for draft use)</router-link>
           <router-link to="calendar"> To calendar(for draft use)</router-link>
           <router-link to="directory"> To directory(for draft use)</router-link>
           <router-link to="calling"> To calling(for draft use)</router-link>
-            <v-card class="elevation-12 blue lighten-5">
+            <v-card class="elevation-12 blue lighten-5 mx-40">
               <v-card-text>
                 <v-form>
                   <v-text-field
@@ -83,3 +102,8 @@ export default {
     })
 }
 </script>
+<style scoped>
+#Template1{
+        font-family: Helvetica;
+    }
+</style>
