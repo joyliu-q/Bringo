@@ -189,13 +189,21 @@
                                     <v-list-item
                                     v-for="event in events"
                                     :key="event"
+                                    @mouseover="attendHover=true"
+                                    @mouseleave="attendHover=false" 
+                                    @click="attendMeeting()"
                                     >
-                                    <v-list-item-icon>
-                                        <v-icon>mdi-clock</v-icon>
-                                    </v-list-item-icon>
-                                    <v-list-item-content>
-                                        <v-list-item-title v-text="event"></v-list-item-title>
-                                    </v-list-item-content>
+                                        <v-list-item-icon>
+                                            <v-icon>mdi-clock</v-icon>
+                                        </v-list-item-icon>
+                                        <v-list-item-content>
+                                            <v-list-item-title v-text="event"></v-list-item-title>
+                                        </v-list-item-content>
+                                        <v-list-item-action>
+                                            <v-fab-transition>
+                                                <v-button v-if="attendHover">Attend</v-button>
+                                            </v-fab-transition>
+                                        </v-list-item-action>
                                     </v-list-item>
                                 </v-list-item-group>
                             </v-list>
@@ -225,8 +233,10 @@ export default {
             overlay: false,
             overlay_page: 0,
             editProfile: false,
+            attendHover: false,
             interests: ["Literature", "Book Illustration", "Roald Dahl"],
-            events: ["September 30 - Meet with Maria Li", "October 02 - Meet with Daniel Callaway"],
+            events: ["7:30PM EST Sept 30 - Maria Li", 
+                    "10:00AM EST Oct 02 - Daniel Callaway"],
         }
     },
     methods: {
@@ -263,6 +273,9 @@ export default {
         // Schedule Methods
         alertCallRequests: function() {
             alert("No Incoming Call Requests");
+        },
+        attendMeeting: function() {
+            alert("The meeting hasn't started yet: please wait until the specified date and time!");
         },
     }
 }
