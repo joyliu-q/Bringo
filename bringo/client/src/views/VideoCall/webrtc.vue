@@ -27,3 +27,21 @@
       };
     },
   }
+
+  </script>
+  
+<style scoped>
+  .video-list {
+    background: rgb(228, 191, 69);
+    height: auto;
+  }
+
+    .video-list div {
+      padding: 5px;
+    }
+
+  .video-item {
+    background: #c3e9f0;
+    display: inline-block;
+  }
+</style>
