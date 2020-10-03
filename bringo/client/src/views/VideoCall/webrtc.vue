@@ -8,3 +8,22 @@
       </div>
   </div>
 </template>
+
+
+<script>
+  import RTCMultiConnection from 'rtcmulticonnection';
+  require('adapterjs');
+  export default {
+    name: 'vue-webrtc',
+    components: {
+      RTCMultiConnection
+    },
+    data() {
+      return {
+        rtcmConnection: null,
+        localVideo: null,
+        videoList: [],
+        canvas: null,
+      };
+    },
+  }
