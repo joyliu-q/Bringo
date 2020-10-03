@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
-const PORT = 3000;
+const PORT = 3001;
 
-app.get('/', (req,res)->)
+app.get('/', (req,res)=>res.send('Hello world!'));
+
+app.listen(PORT, ()=>console.log(`App listening at http://localhost:${PORT}`));
