@@ -47,18 +47,18 @@
                             <!--Speech to Text Button-->
                             <v-btn 
                                 flat color="deep-purple accent-4 white--text" 
-                                @click="toggleEdit()"
+                                @click="toggleSpeech()"
                                 style="float: left"
                             >
-                                <v-icon>{{ editProfile ? 'mdi-microphone-outline' : 'mdi-microphone'}}</v-icon>
-                                {{ editProfile ? 'Pause/Stop: I\'m Finished' : 'Speech to Text: Too Tired to Type? Tell Your Story' }}
+                                <v-icon>{{ speechOn ? 'mdi-microphone-outline' : 'mdi-microphone'}}</v-icon>
+                                {{ speechOn ? 'Pause/Stop: I\'m Finished' : 'Speech to Text: Too Tired to Type? Tell Your Story' }}
                             </v-btn>
                         </v-card-text>
                     </v-card>
                     <v-textarea
                         solo
                         name="input-7-4"
-                        label="Write your story here or tell it using our speech-to-text button below."
+                        label="Write your story here or tell it using our speech-to-text button above."
                         rows="10"
                         auto-grow
                         counter
@@ -79,7 +79,7 @@
 
 <script>
 import Wrapper from '../components/Wrapper'
-
+const WatsonSpeech = require("watson-speech")
 export default {
     name: 'Dashboard',
     components: {
@@ -88,16 +88,39 @@ export default {
     data: function () {
         return {
             editProfile: false,
+            speechOn: false,
             interests: ["Literature", "Book Illustration", "Roald Dahl"],
         }
     },
     methods: {
-        toggleEdit: function() {
-            if (this.editProfile) {
-                this.editProfile = false
+        toggleSpeech: async function() {
+            var response = await fetch('http://localhost:3002/api/speech-to-text/token');
+            var transcriptToken = await response.text();
+            // If speech-to-text already on, then turn off
+            if (this.speechOn) {
+                this.speechOn = false;
+                stream.stop();
+                stream.setEncoding('utf8');
+                stream.on('data', function(data) {
+                    console.log(data);
+                });
+                stream.on('error', function(err) {
+                    console.log(err);
+                });
+                console.log("speech done uwu");
             }
+            // Otherwise, turn it on 
             else {
-                this.editProfile = true
+                this.speechOn = true
+                var stream = WatsonSpeech.SpeechToText.recognizeMicrophone({accessToken: transcriptToken});
+                stream.setEncoding('utf8');
+                stream.on('data', function(data) {
+                    console.log(data);
+                });
+                stream.on('error', function(err) {
+                    console.log(err);
+                });
+                console.log("speech uwu")
             }
         },
         //Profile Methods
