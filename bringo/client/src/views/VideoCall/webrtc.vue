@@ -27,6 +27,48 @@
         meetingname: null,
       };
     },
+     props: {
+      roomId: {
+        type: String,
+        default: 'Meeting Room'
+      },
+      socketURL: {
+        type: String,
+        default: 'https://rtcmulticonnection.herokuapp.com:443/'
+      },
+      cameraHeight: {
+        type: [Number, String],
+        default: 160
+      },
+      autoplay: {
+        type: Boolean,
+        default: true
+      },
+      screenshotFormat: {
+        type: String,
+        default: 'image/jpeg'
+      },
+      enableAudio: {
+        type: Boolean,
+        default: true
+      },
+      enableVideo: {
+        type: Boolean,
+        default: true
+      },
+      enableLogs: {
+        type: Boolean,
+        default: false
+      },
+      stunServer: {
+        type: String,
+        default: null
+      },
+      turnServer: {
+        type: String,
+        default: null
+      }
+    },
   }
 
   </script>
