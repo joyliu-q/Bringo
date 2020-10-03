@@ -2,8 +2,8 @@
     <wrapper>
         <div>
             <v-content>
-                <v-container >
-                    <!--Profile-->
+                <v-container>
+                    <!--Header-->
                     <v-card
                         :loading="loading"
                         class="mx-auto my-12"
@@ -55,15 +55,25 @@
                             </v-btn>
                         </v-card-text>
                     </v-card>
-                    <v-textarea
-                        solo
-                        name="input-7-4"
-                        label="Write your story here or tell it using our speech-to-text button above."
-                        rows="10"
-                        auto-grow
-                        counter
-                        :value="comment"
-                    ></v-textarea>
+                    <!--Blog Input Area-->
+                    <v-card
+                        :loading="loading"
+                        class="mx-auto my-12"
+                        max-width="1000"
+                        height = "auto"
+                    >
+                        <speech-to-text :text.sync="text" @speechend="speechEnd"></speech-to-text>
+                        <v-textarea
+                            solo
+                            name="input-7-4"
+                            label="Write your story here or tell it using our speech-to-text button above."
+                            rows="10"
+                            auto-grow
+                            counter
+                            v-model="text"
+                            :value="comment"
+                        ></v-textarea>
+                    </v-card>
                     <!--Publish Button-->
                     <v-btn large 
                         flat color="deep-purple accent-4 white--text" 
@@ -73,24 +83,6 @@
                     </v-btn>
                 </v-container>
             </v-content>
-            <div id="app">
-                <v-app id="inspire">
-                    <v-container fluid>
-                    <v-layout row wrap justify-center class="mt-4">
-                        <v-flex xs12 sm10 text-xs-center>
-                        <v-text-field
-                            label="The text"
-                            v-model="text"
-                            textarea
-                        ></v-text-field>
-                        </v-flex>
-                        <v-flex xs12 sm8 md4 text-xs-center>
-                        <speech-to-text :text.sync="text" @speechend="speechEnd"></speech-to-text>
-                        </v-flex>
-                    </v-layout>
-                    </v-container>
-                </v-app>
-            </div>
         </div>
     </wrapper>
 </template>

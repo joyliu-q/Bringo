@@ -2,7 +2,7 @@
     <wrapper>
         <div>
             <v-content>
-                <v-container >
+                <v-container>
                     <!--Profile-->
                     <v-card
                         :loading="loading"
