@@ -2,7 +2,9 @@
     <wrapper>
         <v-content>
             <v-container>
-                <div class = "fill-height">
+                <vue-calendly url="https://calendly.com/joyliu-q" :height="600"></vue-calendly>
+                <v-btn large to="dashboard">Back</v-btn>
+                <div class="fill-height">
                     <v-col>
                         <v-sheet height="64">
                             <v-toolbar>
@@ -139,7 +141,6 @@
 
 <script>
 import Wrapper from '../components/Wrapper'
-
 export default {
     name: 'Calendar',
     components: {
