@@ -18,8 +18,8 @@
         </v-row>
             <v-row  no-gutters>
                 <template v-for="(user,i) in users">
-                
-                    <v-card class="mx-auto" max-width="344" align="center" :key="i" width="350">
+                <v-container :key="i">
+                    <v-card class="mx-auto" max-width="344" align="center"  width="350" blue lighten-3>
                         <v-avatar size="72" center>
                             <v-img alt="Avatar" src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"></v-img>
                         </v-avatar>
@@ -35,6 +35,7 @@
                             </v-btn>
                         </v-card-actions>
                     </v-card>
+                </v-container>
                 </template>
             </v-row>
         </v-container>
@@ -122,7 +123,7 @@ export default {
         left: 91px;
         top: 106px;
 
-        font-family: Roboto;
+        font-family: Helvetica;
         font-style: normal;
         font-weight: normal;
         font-size: 50px;
