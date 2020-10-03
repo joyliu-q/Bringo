@@ -17,27 +17,25 @@
             </v-col>
         </v-row>
             <v-row  no-gutters>
-                <v-col v-for="n in 4" :key="n">
-                    <v-card class="mx-auto" max-width="434" tile>
-                        <v-img height="100%" src="https://cdn.vuetifyjs.com/images/cards/server-room.jpg">
-                        <v-row align="end" class="fill-height">
-                            <v-col align-self="start" class="pa-0" cols="12">
-                                <v-avatar class="profile" color="grey" size="164" tile>
-                                    <v-img src="https://cdn.vuetifyjs.com/images/profiles/marcus.jpg"></v-img>
-                                </v-avatar>
-                            </v-col>
-                            <v-col class="py-0">
-                                <v-list-item color="rgba(0, 0, 0, .4)" dark>
-                                    <v-list-item-content>
-                                    <v-list-item-title class="title">Marcus Obrien</v-list-item-title>
-                                    <v-list-item-subtitle>Network Engineer</v-list-item-subtitle>
-                                    </v-list-item-content>
-                                </v-list-item>
-                            </v-col>
-                        </v-row>
-                        </v-img>
+                <template v-for="(user,i) in users">
+                
+                    <v-card class="mx-auto" max-width="344" align="center" :key="i" width="350">
+                        <v-avatar size="72" center>
+                            <v-img alt="Avatar" src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"></v-img>
+                        </v-avatar>
+                        <v-card-title>
+                            {{user.name}}
+                        </v-card-title>
+                        <v-card-subtitle>
+                            {{user.self_intro}}
+                        </v-card-subtitle>
+                        <v-card-actions>
+                            <v-btn depressed color="primary">
+                                Schedule a meeting
+                            </v-btn>
+                        </v-card-actions>
                     </v-card>
-                </v-col>
+                </template>
             </v-row>
         </v-container>
         </v-main>
@@ -48,6 +46,52 @@
 
 <script>
 import Wrapper from '../components/Wrapper'
+
+const users = [
+    {
+        id: 1,
+        name: 'Som Boudy',
+        self_intro: 'Hi! I’m Som, a recent high school graduate. I love playing and watching baseball and I love cats!',
+        img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
+        hobbies: ['baseball', 'cats']
+    },
+    {
+        id: 2,
+        name: 'Andre Jones',
+        self_intro: 'Hi! I’m Hey, my name is Andre, I am a psychology major in university and love helping out people and playing chess.',
+        img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
+        hobbies: ['baseball', 'cats']
+    },
+    {
+        id: 3,
+        name: 'Maria Stevens',
+        self_intro: 'Hi! I am a graduate school in history and I love crime shows!',
+        img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
+        hobbies: ['baseball', 'cats']
+    },
+    {
+        id: 4,
+        name: 'Daya Powers',
+        self_intro: 'Hi! I am a graduate school in history and I love crime shows!',
+        img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
+        hobbies: ['baseball', 'cats']
+    },
+    {
+        id: 5,
+        name: 'Dolly-Anna Ray',
+        self_intro: 'A woman with wisdom',
+        img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
+        hobbies: ['baseball', 'cats']
+    },
+    {
+        id: 6,
+        name: 'Jim Sanford',
+        self_intro: 'A woman with wisdom',
+        img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
+        hobbies: ['baseball', 'cats']
+    },
+
+];
 
 export default {
     name: 'Directory',
@@ -61,6 +105,7 @@ export default {
         'end',
       ],
       items: ['Age','Volunteer', 'Peers'],
+      users,
     }),
 }
 </script>
