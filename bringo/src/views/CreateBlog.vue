@@ -47,18 +47,18 @@
                             <!--Speech to Text Button-->
                             <v-btn 
                                 flat color="deep-purple accent-4 white--text" 
-                                @click="toggleEdit()"
+                                @click="toggleSpeech()"
                                 style="float: left"
                             >
-                                <v-icon>{{ editProfile ? 'mdi-microphone-outline' : 'mdi-microphone'}}</v-icon>
-                                {{ editProfile ? 'Pause/Stop: I\'m Finished' : 'Speech to Text: Too Tired to Type? Tell Your Story' }}
+                                <v-icon>{{ speechOn ? 'mdi-microphone-outline' : 'mdi-microphone'}}</v-icon>
+                                {{ speechOn ? 'Pause/Stop: I\'m Finished' : 'Speech to Text: Too Tired to Type? Tell Your Story' }}
                             </v-btn>
                         </v-card-text>
                     </v-card>
                     <v-textarea
                         solo
                         name="input-7-4"
-                        label="Write your story here or tell it using our speech-to-text button below."
+                        label="Write your story here or tell it using our speech-to-text button above."
                         rows="10"
                         auto-grow
                         counter
@@ -79,7 +79,8 @@
 
 <script>
 import Wrapper from '../components/Wrapper'
-
+var IAM_access_token = 'eyJraWQiOiIyMDIwMDkyMjE4MzMiLCJhbGciOiJSUzI1NiJ9.eyJpYW1faWQiOiJpYW0tU2VydmljZUlkLWJlM2NlYTNjLTIyZDQtNGNhMS1iZTM2LWM1MmJmODYxZDExMiIsImlkIjoiaWFtLVNlcnZpY2VJZC1iZTNjZWEzYy0yMmQ0LTRjYTEtYmUzNi1jNTJiZjg2MWQxMTIiLCJyZWFsbWlkIjoiaWFtIiwianRpIjoiMjI1Zjg1NzktMGJkNS00YjIyLWJjYzMtNzdiMDJiZDUyNTMwIiwiaWRlbnRpZmllciI6IlNlcnZpY2VJZC1iZTNjZWEzYy0yMmQ0LTRjYTEtYmUzNi1jNTJiZjg2MWQxMTIiLCJuYW1lIjoiQXV0by1nZW5lcmF0ZWQgc2VydmljZSBjcmVkZW50aWFscyIsInN1YiI6IlNlcnZpY2VJZC1iZTNjZWEzYy0yMmQ0LTRjYTEtYmUzNi1jNTJiZjg2MWQxMTIiLCJzdWJfdHlwZSI6IlNlcnZpY2VJZCIsInVuaXF1ZV9pbnN0YW5jZV9jcm5zIjpbImNybjp2MTpibHVlbWl4OnB1YmxpYzpzcGVlY2gtdG8tdGV4dDp1cy1lYXN0OmEvZWE1ZTM1NWRlOWU0NGI5NDg1YzRhOGVkNGQ4NTc0ZGE6NGQxZDA2Y2EtN2M5Yy00MDkyLWI3YmItMmU5MjRhMDc3OTQ1OjoiXSwiYWNjb3VudCI6eyJ2YWxpZCI6dHJ1ZSwiYnNzIjoiZWE1ZTM1NWRlOWU0NGI5NDg1YzRhOGVkNGQ4NTc0ZGEiLCJmcm96ZW4iOnRydWV9LCJpYXQiOjE2MDE3MDAyNTIsImV4cCI6MTYwMTcwMzg1MiwiaXNzIjoiaHR0cHM6Ly9pYW0uYmx1ZW1peC5uZXQvaWRlbnRpdHkiLCJncmFudF90eXBlIjoidXJuOmlibTpwYXJhbXM6b2F1dGg6Z3JhbnQtdHlwZTphcGlrZXkiLCJzY29wZSI6ImlibSBvcGVuaWQiLCJjbGllbnRfaWQiOiJkZWZhdWx0IiwiYWNyIjoxLCJhbXIiOlsicHdkIl19.W8eJ0Rgh-fAqZBirRkDJNloEh2ls8bixgWE96BW5ZPKKomdM0NDEn2kc1HUYUIbT1XbJCJLxplESRTtB4LWMRc1RbLSe2muGarx_QS6qH8_SBpvtqcUEFqUHYJtfB5yJAgVvrAl1cjqar8F0u0ED_BCwDLuWfmC4fU4jymuSIjeHiigFdtBx2NZgn5sFZ9IYw4jlK-VzV4da2oOrtTg6EOOv6hkNT6Mx8Cx_43b1qBgx7ereDk3pz5UIUGmKblHFAcYSgXBR8rnzLsQWmqTy-x9FlQu7z06iPrP_76jTkD9U5zUiw2T2iuccPUPg-aAPjABAAaMLfv329uHh71tfzA';
+const WatsonSpeech = require("watson-speech")
 export default {
     name: 'Dashboard',
     components: {
@@ -88,16 +89,39 @@ export default {
     data: function () {
         return {
             editProfile: false,
+            speechOn: false,
             interests: ["Literature", "Book Illustration", "Roald Dahl"],
         }
     },
     methods: {
-        toggleEdit: function() {
-            if (this.editProfile) {
-                this.editProfile = false
+        toggleSpeech: async function() {
+            var response = await fetch('http://localhost:3002/api/speech-to-text/token');
+            var transcriptToken = await response.text();
+            // If speech-to-text already on, then turn off
+            if (this.speechOn) {
+                this.speechOn = false;
+                stream.stop();
+                stream.setEncoding('utf8');
+                stream.on('data', function(data) {
+                    console.log(data);
+                });
+                stream.on('error', function(err) {
+                    console.log(err);
+                });
+                console.log("speech done uwu");
             }
+            // Otherwise, turn it on 
             else {
-                this.editProfile = true
+                this.speechOn = true
+                var stream = WatsonSpeech.SpeechToText.recognizeMicrophone({accessToken: transcriptToken});
+                stream.setEncoding('utf8');
+                stream.on('data', function(data) {
+                    console.log(data);
+                });
+                stream.on('error', function(err) {
+                    console.log(err);
+                });
+                console.log("speech uwu")
             }
         },
         //Profile Methods

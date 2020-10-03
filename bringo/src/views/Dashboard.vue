@@ -1,3 +1,4 @@
+
 <template>
     <wrapper>
         <div>
@@ -14,7 +15,7 @@
                             <v-spacer></v-spacer>
                             <!--Edit button for Profile-->
                             <v-btn 
-                                flat color="deep-purple accent-4 white--text" 
+                                color="deep-purple accent-4 white--text" 
                                 @click="toggleEdit()"
                             >
                                 {{ editProfile ? 'Confirm Profile Changes' : 'Edit Profile Info' }}
@@ -74,7 +75,7 @@
                                 <v-card-text>My Stories</v-card-text>
                                 <v-spacer></v-spacer>
                                 <v-btn>See Previous Blogs</v-btn>
-                                <v-btn>Write a New Entry</v-btn>
+                                <v-btn to="create_blog">Write a New Entry</v-btn>
                                 <v-spacer></v-spacer>
                                 <v-card-text>Community Highlights</v-card-text>
                                 <v-spacer></v-spacer>
