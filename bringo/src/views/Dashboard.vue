@@ -155,6 +155,7 @@ export default {
     h1 {
         font-family: Helvetica;
     }
+ 
     .container {
         max-width: 1000px;
     }
