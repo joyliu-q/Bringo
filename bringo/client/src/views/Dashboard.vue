@@ -191,7 +191,7 @@
                                     :key="event"
                                     @mouseover="attendHover=true"
                                     @mouseleave="attendHover=false" 
-                                    @click="attendMeeting()"
+                                    to="calling"
                                     >
                                         <v-list-item-icon>
                                             <v-icon>mdi-clock</v-icon>
@@ -285,7 +285,6 @@ export default {
     h1 {
         font-family: Helvetica;
     }
- 
     .container {
         max-width: 1000px;
     }
@@ -296,5 +295,4 @@ export default {
     #newChipInput::placeholder {
         color: #c099ff;
     }
-
 </style>
