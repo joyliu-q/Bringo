@@ -6,7 +6,9 @@
                 <v-flex xs8 sm9 text-xs-center>
                 <p v-if="error" class="grey--text">{{error}}</p>
                 <p v-else class="mb-0">
-                    <span v-if="sentences.length > 0" v-for="sentence in sentences key:">{{sentence}}. </span>
+                    <span v-if="sentences.length > 0" >
+                        <span v-for="sentence in sentences" :key="sentence">{{sentence}}. </span>
+                    </span>
                     <span>{{runtimeTranscription}}</span>
                 </p>
                 </v-flex>
@@ -76,11 +78,11 @@ export default {
             recognition.lang = this.lang
             recognition.interimResults = true
 
-            recognition.addEventListener('speechstart', event => {
+            recognition.addEventListener('speechstart', () => {
                 this.speaking = true
             })
 
-            recognition.addEventListener('speechend', event => {
+            recognition.addEventListener('speechend', () => {
                 this.speaking = false
             })
 

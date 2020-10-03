@@ -1,6 +1,7 @@
 <template>
     <wrapper>
         <div>
+            LOL
             <div id="app">
                 <v-app id="inspire">
                     <v-container fluid>
