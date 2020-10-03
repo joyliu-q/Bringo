@@ -2,6 +2,7 @@
 <template>
     <wrapper>
         <v-content>
+            <v-overlay :value="overlay"></v-overlay>
             <v-container>
                 <!--Profile-->
                 <v-card
@@ -107,6 +108,7 @@ export default {
     },
     data: function () {
         return {
+            overlay: false,
             editProfile: false,
             interests: ["Literature", "Book Illustration", "Roald Dahl"],
         }
