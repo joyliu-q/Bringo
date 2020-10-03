@@ -1,6 +1,5 @@
 <template>
 <wrapper>
-
     <v-app class="indigo lighten-5">
         <v-main>
         <v-container>
