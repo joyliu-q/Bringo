@@ -114,9 +114,10 @@
                         <div class="my-4 subtitle-1">
                             John Doe
                         </div>
-                        <div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <div v-if="editProfile !== true">
+                            {{ profileIntro }}
                         </div>
+                        <v-textarea v-if="editProfile == true" :value="profileIntro"></v-textarea>
                         </v-card-text>
                     <v-divider class="mx-4"></v-divider>
                     <v-card-text>
@@ -191,7 +192,7 @@
                                     :key="event"
                                     @mouseover="attendHover=true"
                                     @mouseleave="attendHover=false" 
-                                    @click="attendMeeting()"
+                                    to="calling"
                                     >
                                         <v-list-item-icon>
                                             <v-icon>mdi-clock</v-icon>
@@ -233,6 +234,7 @@ export default {
             overlay: false,
             overlay_page: 0,
             editProfile: false,
+            profileIntro: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
             attendHover: false,
             interests: ["Literature", "Book Illustration", "Roald Dahl"],
             events: ["7:30PM EST Sept 30 - Maria Li", 
@@ -285,7 +287,6 @@ export default {
     h1 {
         font-family: Helvetica;
     }
- 
     .container {
         max-width: 1000px;
     }
@@ -296,5 +297,4 @@ export default {
     #newChipInput::placeholder {
         color: #c099ff;
     }
-
 </style>
