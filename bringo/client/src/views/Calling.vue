@@ -1,11 +1,17 @@
 <template>
+    <div>
     <h1>This is the calling page!!</h1>
+    <div class="video-list"> 
+        <p>This is where the videos will go</p>
+    </div>
+    </div>
 </template>
 
 
 <script>
-import RTCMultiConnection from 'rtcmulticonnection';
+
 export default {
-    name: 'Calling'
+    name: 'Calling',
+
 }
 </script>
