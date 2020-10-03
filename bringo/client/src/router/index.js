@@ -1,6 +1,8 @@
 import Vue from 'vue'
+import VueCalendly from 'vue-calendly'
 import VueRouter from 'vue-router'
 
+Vue.use(VueCalendly);
 Vue.use(VueRouter)
 
   const routes = [
