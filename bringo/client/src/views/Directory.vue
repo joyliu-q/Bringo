@@ -12,7 +12,7 @@
         <v-row>
             <v-spacer></v-spacer>
             <v-col cols="2">
-            <v-select :items="items" outlined label="Filter By" dense></v-select>
+            <v-select :items="items" outlined label="Filter/Sort By" dense></v-select>
             </v-col>
         </v-row>
             <v-row  no-gutters>
@@ -29,10 +29,7 @@
                             {{user.self_intro}}
                         </v-card-subtitle>
                         <v-card-actions>
-                            <v-btn 
-                                depressed color="primary"
-                                to="/calendar"
-                            >
+                            <v-btn depressed color="primary" to="/calendar">
                                 Schedule a meeting
                             </v-btn>
                         </v-card-actions>
@@ -54,6 +51,7 @@ const users = [
     {
         id: 1,
         name: 'Som Boudy',
+        age: 50,
         self_intro: 'Hi! I’m Som, a recent high school graduate. I love playing and watching baseball and I love cats!',
         img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
         hobbies: ['baseball', 'cats']
@@ -61,6 +59,7 @@ const users = [
     {
         id: 2,
         name: 'Andre Jones',
+        age: 60,
         self_intro: 'Hi! I’m Hey, my name is Andre, I am a psychology major in university and love helping out people and playing chess.',
         img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
         hobbies: ['baseball', 'cats']
@@ -68,6 +67,7 @@ const users = [
     {
         id: 3,
         name: 'Maria Stevens',
+        age: 70,
         self_intro: 'Hi! I am a graduate school in history and I love crime shows!',
         img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
         hobbies: ['baseball', 'cats']
@@ -75,6 +75,7 @@ const users = [
     {
         id: 4,
         name: 'Daya Powers',
+        age: 75,
         self_intro: 'Hi! I am a graduate school in history and I love crime shows!',
         img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
         hobbies: ['baseball', 'cats']
@@ -82,6 +83,7 @@ const users = [
     {
         id: 5,
         name: 'Dolly-Anna Ray',
+        age: 55,
         self_intro: 'A woman with wisdom',
         img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
         hobbies: ['baseball', 'cats']
@@ -89,6 +91,7 @@ const users = [
     {
         id: 6,
         name: 'Jim Sanford',
+        age: 60,
         self_intro: 'A woman with wisdom',
         img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
         hobbies: ['baseball', 'cats']
@@ -109,7 +112,13 @@ export default {
       ],
       items: ['Age','Volunteer', 'Peers'],
       users,
+      filteredUsers:[],
     }),
+    methods:{
+        updateUsers(){
+            
+        }
+    }
 }
 </script>
 

@@ -2,11 +2,22 @@ const express = require('express');
 const mongoose = require('mongoose');
 const {PORT, mongoUri} = require('./config');
 const app = express();
+const cors = require('cors');
+const morgan =require('morgan');
+const bodyParser = require('body-parser')
 
+// allow us to make ajax
+app.use(cors());
+
+// log every request to the server in the console
+app.use(morgan('tiny'));
+
+// parse json
+app.use(bodyParser.json());
 
 // connection is not synchronous, we're using promises
 mongoose
-    .connect(`mongodb+srv://user:nevergonnagiveyouup@cluster0.1ryjy.mongodb.net/user_info?retryWrites=true&w=majority`, {
+    .connect(mongoUri, {
         useNewUrlParser: true,
         useCreateIndex: true,
         useUnifiedTopology: true,
