@@ -2,25 +2,29 @@
     <wrapper>
         <v-content>
             <v-overlay :value="overlay">
-                <v-card id="t1">
+                <v-card v-if="overlay_page==0">
                     <v-card-title>Hi! Welcome to Bringo.</v-card-title>
                     <v-card-text>Before we start, let me give you a rundown of how our platform works!</v-card-text>
+                    <v-btn @click="overlay_page+=1"></v-btn>
                 </v-card>
-                <v-card id="t2">
+                <v-card v-if="overlay_page==1">
                     <v-card-title>Dashboard</v-card-title>
                     <v-card-text>This is the dashboard page. This is the page you will see after logging on. On the dashboard page, there are 3 main sections: profile, blog, and social.</v-card-text>
+                    <v-btn @click="overlay_page+=1"></v-btn>
                 </v-card>
-                <v-card id="t3">
+                <v-card v-if="overlay_page==2">
                     <v-card-title>Profile</v-card-title>
                     <v-card-text>In the profile section, you can view and edit your information, such as your name, age, and interests. With this information, other people can find you through the directory and we can better pair you up with others for calls and social events.</v-card-text>
+                    <v-btn @click="overlay_page+=1"></v-btn>
                 </v-card>
-                <v-card id="t4">
+                <v-card v-if="overlay_page==3">
                     <v-card-title>Profile</v-card-title>
                     <v-card-text>To complete the profile, we still need a few details from you. Let's fill it out together!</v-card-text>
                 </v-card>
-                <v-card id="t5">
+                <v-card v-if="overlay_page==4">
                     <v-card-title>Dashboard</v-card-title>
                     <v-card-text>This is the dashboard page. When you registered for an account, we asked for your name, age, and interests. That infomation can be found in the profile section!</v-card-text>
+                    <v-btn @click="overlay_page+=1"></v-btn>
                 </v-card>
             </v-overlay>
             <v-container>
@@ -129,6 +133,7 @@ export default {
     data: function () {
         return {
             overlay: false,
+            overlay_page: 0,
             editProfile: false,
             interests: ["Literature", "Book Illustration", "Roald Dahl"],
         }
