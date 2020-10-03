@@ -29,7 +29,7 @@
           <p style="font-size:40px; font-weight:bold; text-align:center">
           Bridge
           </p>
-       <img src="C:\Users\wonde\desktop\Bringo\bringo\src\assets\community1.png">
+       <img src="C:\Users\wonde\desktop\Bringo\bringo\src\assets\community.png">
           <v-container>
       </v-container>
           <v-container>
@@ -100,6 +100,6 @@ export default {
 </script>
 <style scoped>
 #Template1{
-        font-family: Helvetica;
+        font-family: Open-Sans;
     }
 </style>

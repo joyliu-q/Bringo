@@ -23,6 +23,7 @@
     "passport": "^0.4.1",
     "portal-vue": "^2.1.7",
     "vue": "^2.6.12",
+    "vue-calendly": "0.0.4",
     "vue-router": "^3.4.5",
     "vuetify": "^2.2.11",
     "vuex": "^3.5.1",
