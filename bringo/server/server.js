@@ -8,6 +8,17 @@ const cors = require('cors');
 // Middlewares
 app.use(cors());
 
+// Authenticator must be set! Don't know how to solve?
+// const SpeechToTextV1 = require('ibm-watson/speech-to-text/v1');
+// const { IamAuthenticator } = require('ibm-watson/auth');
+
+// const speechToText = new SpeechToTextV1({
+//   authenticator: new IamAuthenticator({
+//     apikey:  process.env.STT_API_KEY,
+//   }),
+//   url: "",
+// });
+
 // speech to text token endpoint
 var sttAuthService = new AuthorizationV1(
   Object.assign(
