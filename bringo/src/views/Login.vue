@@ -17,11 +17,7 @@
             md="4"
           >
           <template>
-  <v-card
-    class="d-flex pa-2"
-    outlined
-    tile
-  >
+
 
     <v-container>
       </v-container>
@@ -29,11 +25,11 @@
       </v-container>
           <v-container>
       </v-container>
-          <v-container>
-          <p class="display-3">
-          Bringo
+        
+          <p style="font-size:40px; font-weight:bold; text-align:center">
+          Bridge
           </p>
-      </v-container>
+       <img src="C:\Users\wonde\desktop\Bringo\bringo\src\assets\community1.png">
           <v-container>
       </v-container>
           <v-container>
@@ -41,7 +37,7 @@
           <v-container>
       </v-container>
 
-  </v-card>
+
 </template>
           <router-link to="dashboard"> To dashboard(for draft use)</router-link>
           <router-link to="calendar"> To calendar(for draft use)</router-link>
