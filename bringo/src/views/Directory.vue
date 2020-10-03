@@ -30,7 +30,10 @@
                             {{user.self_intro}}
                         </v-card-subtitle>
                         <v-card-actions>
-                            <v-btn depressed color="primary">
+                            <v-btn 
+                                depressed color="primary"
+                                to="/calendar"
+                            >
                                 Schedule a meeting
                             </v-btn>
                         </v-card-actions>
