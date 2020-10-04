@@ -12,8 +12,8 @@
         <v-row>
             <v-spacer></v-spacer>
             <v-col cols="2">
-            <v-select :items="items" v-model="selection" outlined label="Filter/Sort By" dense @click="updateUsers"></v-select>
-            
+            <v-select :items="items" v-model="selection" outlined label="Filter/Sort By" dense ></v-select>
+            <v-btn color="primary" @click="updateUsers" >Go!</v-btn>
             </v-col>
         </v-row>
             <v-row  no-gutters>
