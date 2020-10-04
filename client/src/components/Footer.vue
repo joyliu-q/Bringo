@@ -15,7 +15,7 @@
         white--text
         xs12
       >
-        &copy;2020 — <strong>Bringo Developer Team</strong>
+        &copy;2020 — <strong>Bridge Developer Team</strong>
 
       </v-flex>
     </v-layout>

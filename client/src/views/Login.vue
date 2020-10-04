@@ -2,24 +2,10 @@
 <wrapper>
 
   <v-app class="indigo lighten-5">
-  
     <v-content>
-   
-      <v-container
-        fluid
-      >
-         
-        <v-row
-          align="center"
-          justify="center"
-          class="mb-6"
-        >
-      
-          <v-col
-            cols="12"
-            sm="8"
-            md="4"
-          >
+      <v-container fluid>
+        <v-row align="center" justify="center" class="mb-6">
+          <v-col cols="12" sm="8" md="4">
           <template>
 
 
@@ -29,9 +15,8 @@
       </v-container>
           <v-container>
       </v-container>
-        
           <p style=" color:#03a9f4; font-family: Open-Sans; font-size:65px; font-weight:bold; text-align:center">
-          Bridge
+            Bridge
           </p>
        <img class="title-img" src="../assets/community1.png"/>
 
@@ -44,10 +29,7 @@
 
 
 </template>
-          <router-link to="dashboard"> To dashboard(for draft use)</router-link>
-          <router-link to="calendar"> To calendar(for draft use)</router-link>
-          <router-link to="directory"> To directory(for draft use)</router-link>
-          <router-link to="calling"> To calling(for draft use)</router-link>
+          
             <v-card class="elevation-12 blue lighten-5 mx-40">
               <v-card-text>
                 <v-form>
@@ -56,21 +38,24 @@
                     name="Username"
                     prepend-icon="mdi-account"
                     type="text"
+                    v-model="userName"
                   ></v-text-field>
                   <v-text-field
                     id="password"
                     label="Password"
                     name="password"
+                    v-model="userInputPwd"
                     prepend-icon="mdi-lock"
                     :append-icon="showPassword? 'mdi-eye' : 'mdi-eye-off'"
                     :type="showPassword? 'text': 'password'"
                     @click:append="showPassword = !showPassword"
                   ></v-text-field>
+
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                    <v-btn to="dashboard" flat color="indigo primary-1">
+                    <v-btn to="dashboard" flat color="indigo primary-1" @click="checkPassword">
                     <span class="white--text title">Log in</span>
                     <v-icon right class="white">mdi-login</v-icon>
                     </v-btn>
@@ -92,6 +77,7 @@
 
 <script>
 import Wrapper from '../components/Wrapper'
+// import EventBus from '../../event-bus'
 
 export default {
     name: 'Login',
@@ -99,8 +85,19 @@ export default {
       Wrapper,
     },
     data: () =>({
-        showPassword: false
-    })
+        showPassword: false,
+        userName: '',
+        password: 'maria',
+        userInputPwd:''
+    }),
+    methods: {
+      checkPassword(){
+        console.log("Hello?????")
+        if(this.userInputPwd!=this.password){
+          console.log("error!")
+        }
+      }
+    }
 }
 </script>
 <style scoped>
