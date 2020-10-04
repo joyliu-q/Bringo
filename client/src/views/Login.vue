@@ -1,46 +1,40 @@
-<template id = "Template1">
-<wrapper>
 
-  <v-app class="indigo lighten-5">
-    <v-content>
-      <v-container fluid>
-        <v-row align="center" justify="center" class="mb-6">
-          <v-col cols="12" sm="8" md="4">
-          <template>
-
-
-    <v-container>
-      </v-container>
-          <v-container>
-      </v-container>
-          <v-container>
-      </v-container>
-          <p style=" color:#03a9f4; font-family: Open-Sans; font-size:65px; font-weight:bold; text-align:center">
-            Bridge
-          </p>
-       <img class="title-img" src="../assets/community1.png"/>
-
-          <v-container>
-      </v-container>
-          <v-container>
-      </v-container>
-          <v-container>
-      </v-container>
-
-
-</template>
-          
-            <v-card class="elevation-12 blue lighten-5 mx-40">
-              <v-card-text>
-                <v-form>
+<template>
+  <wrapper>
+    <v-app>
+      <v-content>
+        <v-container fluid>
+          <v-row align="center" justify="center" class="mb-6">
+            <v-col
+              cols="12"
+              sm="8"
+              md="4"
+            >
+              <p style=" color:#03a9f4; font-size:65px; font-weight:bold; text-align:center">
+                Bringo
+              </p>
+              <v-img 
+                class="title-img" 
+                src="../assets/community1.png"
+              ></v-img>
+              <v-card
+              >
+                <v-tabs>
+                  <v-tab>Log In</v-tab>
+                  <v-tab>Sign Up</v-tab>
+                </v-tabs>
+                <v-spacer></v-spacer>
+                <v-container>
+                    <v-text-field
+                  outlined
+                  label="Username"
+                  name="Username"
+                  prepend-icon="mdi-account"
+                  type="text"
+                  v-model="userName"
+                ></v-text-field>
                   <v-text-field
-                    label="Username"
-                    name="Username"
-                    prepend-icon="mdi-account"
-                    type="text"
-                    v-model="userName"
-                  ></v-text-field>
-                  <v-text-field
+                    outlined
                     id="password"
                     label="Password"
                     name="password"
@@ -50,29 +44,27 @@
                     :type="showPassword? 'text': 'password'"
                     @click:append="showPassword = !showPassword"
                   ></v-text-field>
-
-                </v-form>
-              </v-card-text>
-              <v-card-actions>
+                  <v-btn large to="dashboard" flat color="blue primary-1" @click="checkPassword">
+                    <span class="white--text title">Continue</span>
+                    <v-icon large color="white" right>mdi-login</v-icon>
+                  </v-btn>
+                </v-container>
                 <v-spacer></v-spacer>
-                    <v-btn to="dashboard" flat color="indigo primary-1" @click="checkPassword">
-                    <span class="white--text title">Log in</span>
-                    <v-icon right class="white">mdi-login</v-icon>
-                    </v-btn>
-                <v-spacer></v-spacer>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row class="mt-3">
-            <v-spacer></v-spacer>
-            <span class="font-italic font-weight-bold">Welcome!</span>
-            <v-spacer></v-spacer>
-        </v-row>
-      </v-container>
-    </v-content>
-  </v-app>
-</wrapper>
+              </v-card>
+            </v-col>
+          </v-row>
+          <!--CHANGE LATER-->
+          <p style="color:#03a9f4; font-size:85px; font-weight:bold; text-align:left">
+            Bored?
+          </p>
+          <p style="color:#03a9f4; font-size:85px; font-weight:bold; text-align:left"> Stuck at Home?</p>
+          <p style = " font-size:40px;width:42.5%;">Bringo is a social platform for seniors. Our mission is to help you build a support system and bridge the generational gap in the community.</p>
+          <p style = " font-size:40px;width:42.5%;"> Here, you can choose and schedule calls with volunteers across the nation, all eager to help, listen, and engage with you </p>
+          <!--<v-img src="../assets/youngpeople.png"></v-img>-->
+        </v-container>
+      </v-content>
+    </v-app>
+  </wrapper>
 </template>
 
 <script>
@@ -105,9 +97,6 @@ export default {
         font-family: Helvetica;
     }
     .title-img {
-      height: 200px;
-      width: 60%;
       float:center;
-      margin-left:20%;
     }
 </style>
