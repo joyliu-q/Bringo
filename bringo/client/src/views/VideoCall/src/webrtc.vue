@@ -24,7 +24,6 @@
         localVideo: null,
         videoList: [],
         canvas: null,
-        meetingname: null,
       };
     },
      props: {
