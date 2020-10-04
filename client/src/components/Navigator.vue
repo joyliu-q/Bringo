@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: 'Breadcrumb',
+  name: "Navigator",
   data () {
     return {
       breadcrumbList: []

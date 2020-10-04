@@ -88,8 +88,13 @@
                 </v-card>
             </v-overlay>
             <v-container>
+                <v-card :loading="loading" class="mx-auto my-6" max-width="1000">
+                    <v-card-title>
+                        <h2>Welcome Back, Jamie</h2>
+                    </v-card-title>
+                </v-card>
                 <!--Profile-->
-                <v-card :loading="loading" class="mx-auto my-12" max-width="1000">
+                <v-card :loading="loading" class="mx-auto my-6" max-width="1000">
                     <v-card-title>
                         Your Profile
                         <v-spacer></v-spacer>
@@ -102,7 +107,7 @@
                         <v-row align="center" class="mx-0">
                         </v-row>
                         <div class="my-4 subtitle-1">
-                            John Doe
+                            Jamie Dennis
                         </div>
                         <div v-if="editProfile !== true">
                             {{ profileIntro }}
@@ -130,7 +135,7 @@
                 <v-row justify="center">
                     <!--Blog-->
                     <v-col cols="5">
-                        <v-card class="mx-auto my-12" height="350px">
+                        <v-card class="mx-auto" height="350px">
                             <v-card-title>
                                 <v-icon>mdi-pen</v-icon>
                                 Blog
@@ -152,7 +157,7 @@
                     </v-col>
                     <!--Sessions-->
                     <v-col cols="7">
-                        <v-card class="mx-auto my-12" height="350px">
+                        <v-card class="mx-auto" height="350px">
                             <v-card-title>
                                 <v-icon>mdi-calendar-account</v-icon>
                                 Schedule Discussion Sessions

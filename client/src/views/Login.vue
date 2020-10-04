@@ -28,7 +28,7 @@
                   </v-text-field>
                   <v-row>
                     <v-spacer></v-spacer>
-                    <v-btn large to="dashboard" flat color="blue primary-1" @click="checkPassword">
+                    <v-btn large to="dashboard" color="blue primary-1" @click="checkPassword">
                       <span class="white--text title">Continue</span>
                       <v-icon large color="white" right>mdi-login</v-icon>
                     </v-btn>
