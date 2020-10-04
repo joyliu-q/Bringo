@@ -13,6 +13,8 @@ app.use(cors());
 // log every request to the server in the console
 app.use(morgan('tiny'));
 
+bringo/package.json
+
 // parse json
 app.use(bodyParser.json());
 
