@@ -29,6 +29,14 @@
 
 export default {
     name: 'Calling',
+    components:{
+
+    },
+    data(){
+        return{
+            roomId: "Meeting Room"
+        }
+    }
 
 }
 </script>
