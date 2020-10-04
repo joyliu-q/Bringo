@@ -37,7 +37,6 @@ Vue.use(VueRouter)
       breadcrumb: [
         { name: 'Directory' , link: 'directory' },
         { name: 'Calendar',link: 'calendar' }, 
-        {name:'Logout', link:'/' },
         { name: 'Dashboard'},
       ]
     }
@@ -52,7 +51,6 @@ Vue.use(VueRouter)
     meta: {
       breadcrumb: [
         { name: 'Dashboard', link: 'dashboard' },
-        {name:'Logout', link:'/' },
         { name: 'Directory'}, 
       ]
     }
@@ -69,7 +67,6 @@ Vue.use(VueRouter)
         { name: 'Dashboard' , link: 'dashboard' },
         { name: 'Directory' , link: 'directory' },
         { name: 'Calendar' }, 
-        {name:'Logout', link:'/' }
       ]
     }
   },
@@ -85,7 +82,6 @@ Vue.use(VueRouter)
         { name: 'Dashboard' , link: 'dashboard' },
         { name: 'Directory' , link: 'directory' },
         { name: 'Calendar' , link: 'calendar' },
-        {name:'Logout', link:'/' },
         { name: 'Calling' }, 
 
       ]
