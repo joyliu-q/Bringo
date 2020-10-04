@@ -12,27 +12,38 @@
         <v-row>
             <v-spacer></v-spacer>
             <v-col cols="2">
-            <v-select :items="items" outlined label="Filter/Sort By" dense></v-select>
+                <v-select :items="items" v-model="selection" outlined label="Filter/Sort By" dense ></v-select>
+            </v-col>
+            <v-col cols="2">
+                <v-btn color="primary" @click="updateUsers" >Go!
+                <v-icon>search</v-icon>
+                </v-btn>
             </v-col>
         </v-row>
             <v-row  no-gutters>
-                <template v-for="(user,i) in users">
+                <template v-for="(user,i) in filteredUsers">
                 <v-container :key="i">
-                    <v-card class="mx-auto" max-width="344" align="center"  width="350" blue lighten-3>
+                    <v-card class="mx-auto" max-width="450" align="center"  width="450" blue lighten-1>
+
                         <v-avatar size="72" center>
                             <v-img alt="Avatar" src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"></v-img>
                         </v-avatar>
+                        <v-spacer></v-spacer>
+
                         <v-card-title>
-                            {{user.name}}
+                            {{user.name}} (Age: {{user.age}})
                         </v-card-title>
                         <v-card-subtitle>
-                            {{user.self_intro}}
+                            Hi! I'm a {{user.title}}! {{user.self_intro}}
                         </v-card-subtitle>
                         <v-card-actions>
+                            <v-spacer></v-spacer>
                             <v-btn depressed color="primary" to="/calendar">
                                 Schedule a meeting
                             </v-btn>
+                            <v-spacer></v-spacer>
                         </v-card-actions>
+
                     </v-card>
                 </v-container>
                 </template>
@@ -46,58 +57,8 @@
 
 <script>
 import Wrapper from '../components/Wrapper'
+import usersJson from './users.json'
 
-const users = [
-    {
-        id: 1,
-        name: 'Som Boudy',
-        age: 50,
-        self_intro: 'Hi! I’m Som, a recent high school graduate. I love playing and watching baseball and I love cats!',
-        img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
-        hobbies: ['baseball', 'cats']
-    },
-    {
-        id: 2,
-        name: 'Andre Jones',
-        age: 60,
-        self_intro: 'Hi! I’m Hey, my name is Andre, I am a psychology major in university and love helping out people and playing chess.',
-        img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
-        hobbies: ['baseball', 'cats']
-    },
-    {
-        id: 3,
-        name: 'Maria Stevens',
-        age: 70,
-        self_intro: 'Hi! I am a graduate school in history and I love crime shows!',
-        img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
-        hobbies: ['baseball', 'cats']
-    },
-    {
-        id: 4,
-        name: 'Daya Powers',
-        age: 75,
-        self_intro: 'Hi! I am a graduate school in history and I love crime shows!',
-        img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
-        hobbies: ['baseball', 'cats']
-    },
-    {
-        id: 5,
-        name: 'Dolly-Anna Ray',
-        age: 55,
-        self_intro: 'A woman with wisdom',
-        img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
-        hobbies: ['baseball', 'cats']
-    },
-    {
-        id: 6,
-        name: 'Jim Sanford',
-        age: 60,
-        self_intro: 'A woman with wisdom',
-        img: 'https://semantic-ui.com/images/avatar2/large/matthew.png',
-        hobbies: ['baseball', 'cats']
-    },
-
-];
 
 export default {
     name: 'Directory',
@@ -110,14 +71,69 @@ export default {
         'center',
         'end',
       ],
-      items: ['Age','Volunteer', 'Peers'],
-      users,
+      items: ['Age(from high to low)', 'Age(from low to high)', 'Volunteer', 'Peers'],
+      selection:'',
+      users: usersJson,
       filteredUsers:[],
     }),
+
     methods:{
-        updateUsers(){
-            
+        updateUsers: function(){
+            this.filteredUsers=[];
+            var usersNum = this.users.users.length;
+            if(this.selection=='Age(from high to low)'){
+                console.log("Age!!!!");
+                for(var i=0; i<usersNum; i++){
+                        this.filteredUsers.push(this.users.users[i]);
+                }
+                this.filteredUsers.sort(function(a, b){return b.age-a.age});
+                return this.filteredUsers;
+            }
+            if(this.selection=='Age(from low to high)'){
+                console.log("Age!!!!");
+                for(i=0; i<usersNum; i++){
+                        this.filteredUsers.push(this.users.users[i]);
+                }
+                this.filteredUsers.sort(function(a, b){return a.age-b.age});
+                return this.filteredUsers;
+            }
+            if(this.selection=='Volunteer'){
+                console.log("Volunteer!!!");
+                for(i=0; i<usersNum; i++){
+                    if(this.users.users[i].title=='Volunteer'){
+                        this.filteredUsers.push(this.users.users[i]);
+                    }
+                }
+                return this.filteredUsers;
+            }
+            if(this.selection=='Peers'){
+                console.log("Peers!!!");
+                for(var j=0; j<usersNum; j++){
+                    if(this.users.users[j].title=='peer'){
+                        this.filteredUsers.push(this.users.users[j]);
+                    }
+                }
+                return this.filteredUsers;
+            }
+            if(this .selection==''){
+                for(i=0; i<usersNum; i++){
+                    this.filteredUsers.push(this.users.users[i]);
+                }
+                return this.filteredUsers;
+            }
+        },
+        showUsers(){
+            this.filteredUsers=[];
+            var usersNum = this.users.users.length;
+            for(var i=0; i<usersNum; i++){
+                this.filteredUsers.push(this.users.users[i]);
+            }
+            return this.filteredUsers;
         }
+    },
+    created(){
+        console.log("created at once!!")
+        this.showUsers();
     }
 }
 </script>
