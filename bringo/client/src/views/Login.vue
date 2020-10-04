@@ -1,16 +1,20 @@
 <template id = "Template1">
 <wrapper>
+
   <v-app class="indigo lighten-5">
+  
     <v-content>
+   
       <v-container
         fluid
       >
-
+         
         <v-row
           align="center"
           justify="center"
           class="mb-6"
         >
+      
           <v-col
             cols="12"
             sm="8"
