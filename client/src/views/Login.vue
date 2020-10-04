@@ -44,10 +44,14 @@
                     :type="showPassword? 'text': 'password'"
                     @click:append="showPassword = !showPassword"
                   ></v-text-field>
-                  <v-btn large to="dashboard" flat color="blue primary-1" @click="checkPassword">
-                    <span class="white--text title">Continue</span>
-                    <v-icon large color="white" right>mdi-login</v-icon>
-                  </v-btn>
+                  <v-row>
+                    <v-btn large to="dashboard" flat color="blue primary-1" @click="checkPassword">
+                      <v-spacer></v-spacer>
+                      <span class="white--text title">Continue</span>
+                      <v-icon large color="white" right>mdi-login</v-icon>
+                      <v-spacer></v-spacer>
+                    </v-btn>
+                  </v-row>
                 </v-container>
                 <v-spacer></v-spacer>
               </v-card>

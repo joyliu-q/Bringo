@@ -17,7 +17,7 @@
           </li>
         </ul>
       </span>
-      <v-btn to="/">Log out</v-btn>
+      <v-btn v-if="this.$route.name!='Login'" to="/">Log out</v-btn>
     </v-app-bar>
   </div>
 </template>
