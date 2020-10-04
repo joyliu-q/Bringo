@@ -167,7 +167,12 @@
                                     Upcoming Events
                                 </v-subheader>
                                 <v-list-item-group>
-                                    <v-list-item v-for="event in events" :key="event" @mouseover="attendHover=true" @mouseleave="attendHover=false" to="calling">
+                                    <v-list-item 
+                                        v-for="event in events" :key="event" 
+                                        class="text-decoration-none"
+                                        @mouseover="attendHover=true" 
+                                        @mouseleave="attendHover=false" 
+                                        to="calling">
                                         <v-list-item-icon>
                                             <v-icon>mdi-clock</v-icon>
                                         </v-list-item-icon>
@@ -272,5 +277,8 @@ export default {
     }
     #newChipInput::placeholder {
         color: #c099ff;
+    }
+    .v-btn i:hover{
+        transform: scale(1.15);
     }
 </style>
