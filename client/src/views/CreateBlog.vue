@@ -95,6 +95,8 @@ export default {
     methods: {
         toggleSpeech: async function() {
             // **Authentication here
+            this.capturingMic = true;
+            this.transcriptionStream = await captureAudio();
             var response = await fetch('http://localhost:3001/api/speech-to-text/token');
             var transcriptToken = await response.text();
             // If speech-to-text already on, then turn off
