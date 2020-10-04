@@ -94,7 +94,8 @@ export default {
     },
     methods: {
         toggleSpeech: async function() {
-            var response = await fetch('http://localhost:8080/api/speech-to-text/token');
+            // **Authentication here
+            var response = await fetch('http://localhost:3001/api/speech-to-text/token');
             var transcriptToken = await response.text();
             // If speech-to-text already on, then turn off
             if (this.speechOn) {
@@ -112,7 +113,7 @@ export default {
             // Otherwise, turn it on 
             else {
                 this.speechOn = true
-                var stream = WatsonSpeech.SpeechToText.recognizeMicrophone({accessToken: transcriptToken});
+                var stream = WatsonSpeech.SpeechToText.recognizeMicrophone({accessToken: transcriptToken, objectMode: true, extractResults: true, format: false});
                 stream.setEncoding('utf8');
                 stream.on('data', function(data) {
                     console.log(data);

@@ -1,8 +1,10 @@
 'use strict';
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const AuthorizationV1 = require('ibm-watson/authorization/v1');
+const { IamTokenManager } = require('ibm-watson/auth');
+
 const cors = require('cors');
 
 // Middlewares
@@ -18,31 +20,47 @@ app.use(cors());
 //   }),
 //   url: "",
 // });
-
-// speech to text token endpoint
+console.log("F in the chat");
+console.log("L"+process.env.STT_API_KEY);
+/* speech to text token endpoint
 var sttAuthService = new AuthorizationV1(
   Object.assign(
     {
         iam_apikey: process.env.STT_API_KEY,
     }
   )
-);
+);*/
+
+const sttAuthenticator = new IamTokenManager({
+  apikey: process.env.STT_API_KEY
+});
 
 // Routes
 app.use('/api/speech-to-text/token', function(req, res) {
-  sttAuthService.getToken(
-    function(err, token) {
-      if (err) {
-        res.status(500).send('Error retrieving token');
-        return;
-      }
-      res.send(token);
-    }
-  );
+  return sttAuthenticator
+    .requestToken()
+    .then(({ result }) => {
+      console.log(result.access_token)
+      res.json({ accessToken: result.access_token, url: process.env.SPEECH_TO_TEXT_URL });
+    })
+    .catch(console.error);
 });
 
+/**
+ * const ttsAuthenticator = new IamTokenManager({
+  apikey: process.env.TEXT_TO_SPEECH_IAM_APIKEY
+});
+app.use('/api/text-to-speech/token', function(req, res) {
+  return ttsAuthenticator
+    .requestToken()
+    .then(({ result }) => {
+      res.json({ accessToken: result.access_token, url: process.env.TEXT_TO_SPEECH_URL });
+    })
+    .catch(console.error);
+});*/
+
 // Config
-const port = process.env.PORT  || 8080;
+const port = process.env.PORT  || 8000;
 app.listen(port, function() {
   console.log('IBM Watson token endpoint http://localhost:%s/api/speech-to-text/token', port);
 });
