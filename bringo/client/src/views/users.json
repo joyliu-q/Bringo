@@ -39,7 +39,7 @@
     {
         "id": 5,
         "name": "Dolly-Anna Ray",
-        "age": 55,
+        "age": 25,
         "self_intro": "A woman with wisdom",
         "img": "https://semantic-ui.com/images/avatar2/large/matthew.png",
         "hobbies": ["baseball", "cats"],
@@ -48,7 +48,7 @@
     {
         "id":6,
         "name": "Jim Sanford",
-        "age": 60,
+        "age": 28,
         "self_intro":  "A woman with wisdom",
         "img": "https://semantic-ui.com/images/avatar2/large/matthew.png",
         "hobbies": ["baseball", "cats"],
