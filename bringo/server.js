@@ -5,6 +5,7 @@ const app = express();
 const cors = require('cors');
 const morgan =require('morgan');
 const bodyParser = require('body-parser')
+const bucketListItemRoutes = require('./routes/api/bucketListItems')
 
 // allow us to make ajax
 app.use(cors());
@@ -26,6 +27,7 @@ mongoose
     .then(() => console.log('MongoDB database Connected...'))
     .catch((err) => console.log(err))
 
-app.get('/', (req,res)=>res.send('Hello world!'));
+    app.use('/api/bucketListItems', bucketListItemRoutes)
+    app.get('/', (req,res)=>res.send('Hello world!'));
 
 app.listen(PORT, ()=>console.log(`App listening at http://localhost:${PORT}`));

@@ -6,7 +6,11 @@
         "age": 50,
         "self_intro": "Hi! I’m Som, a recent high school graduate. I love playing and watching baseball and I love cats!",
         "img": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-        "hobbies": ["baseball", "cats"],
+        "interests": [
+            "Victorian Literature", 
+            "English",
+            "Life"
+        ],
         "title":"peer"
     },
     {
@@ -15,7 +19,10 @@
         "age": 60,
         "self_intro": "Hi! I’m Hey, my name is Andre, I am a psychology major in university and love helping out people and playing chess.",
         "img": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-        "hobbies": ["baseball", "cats"],
+        "interests": [
+            "Competitive Swimming",
+            "Woodworking"
+        ],
         "title":"peer"
     },
     {
@@ -24,7 +31,11 @@
         "age": 70,
         "self_intro": "Hi! I am a graduate school in history and I love crime shows!",
         "img":"https://semantic-ui.com/images/avatar2/large/matthew.png",
-        "hobbies":["baseball", "cats"],
+        "interests":[
+            "History",
+            "Roald Dahl",
+            "Psychology"
+        ],
         "title":"peer"
     },
     {
@@ -33,7 +44,11 @@
         "age": 75,
         "self_intro":  "Hi! I am a graduate school in history and I love crime shows!",
         "img": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-        "hobbies": ["baseball", "cats"],
+        "interests": [
+            "Stuff",
+            "Ok",
+            "Life"
+        ],
         "title":"peer"
     },
     {
@@ -42,7 +57,10 @@
         "age": 25,
         "self_intro": "A woman with wisdom",
         "img": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-        "hobbies": ["baseball", "cats"],
+        "interests": [
+            "Victorian Literature",
+            "cats"
+        ],
         "title":"Volunteer"
     },
     {
@@ -51,7 +69,11 @@
         "age": 28,
         "self_intro":  "A woman with wisdom",
         "img": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-        "hobbies": ["baseball", "cats"],
+        "interests": [
+            "English", 
+            "cats",
+            "Life"
+        ],
         "title":"Volunteer"
     }
   ]
