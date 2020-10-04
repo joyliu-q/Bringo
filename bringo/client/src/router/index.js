@@ -35,7 +35,10 @@ Vue.use(VueRouter)
     component: () => import(/* webpackChunkName: "about" */ '../views/Dashboard.vue'),
     meta: {
       breadcrumb: [
-        { name: 'Dashboard' }
+        { name: 'Directory' , link: 'directory' },
+        { name: 'Calendar',link: 'calendar' }, 
+        {name:'Logout', link:'/' },
+        { name: 'Dashboard'},
       ]
     }
   },
@@ -49,7 +52,8 @@ Vue.use(VueRouter)
     meta: {
       breadcrumb: [
         { name: 'Dashboard', link: 'dashboard' },
-        { name: 'Directory' }
+        {name:'Logout', link:'/' },
+        { name: 'Directory'}, 
       ]
     }
   },
@@ -64,7 +68,8 @@ Vue.use(VueRouter)
       breadcrumb: [
         { name: 'Dashboard' , link: 'dashboard' },
         { name: 'Directory' , link: 'directory' },
-        { name: 'Calendar' }
+        { name: 'Calendar' }, 
+        {name:'Logout', link:'/' }
       ]
     }
   },
@@ -80,7 +85,9 @@ Vue.use(VueRouter)
         { name: 'Dashboard' , link: 'dashboard' },
         { name: 'Directory' , link: 'directory' },
         { name: 'Calendar' , link: 'calendar' },
-        { name: 'Calling' }
+        {name:'Logout', link:'/' },
+        { name: 'Calling' }, 
+
       ]
     },
   },
