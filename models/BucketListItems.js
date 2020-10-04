@@ -13,4 +13,4 @@ const BucketListItemsSchema = new Schema({
 
 const BucketListItem = model('bucketListItem', BucketListItemsSchema)
 
-module.exports = BucketListItems
+module.exports = BucketListItem
