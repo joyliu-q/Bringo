@@ -1,20 +1,16 @@
 <template id = "Template1">
 <wrapper>
-
   <v-app class="indigo lighten-5">
-  
     <v-content>
-   
       <v-container
         fluid
       >
-         
+
         <v-row
           align="center"
           justify="center"
           class="mb-6"
         >
-      
           <v-col
             cols="12"
             sm="8"
@@ -30,7 +26,7 @@
           <v-container>
       </v-container>
         
-          <p style=" color:#03a9f4; font-family: Open-Sans; font-size:65px; font-weight:bold; text-align:center">
+          <p style=" color:#03a9f4; font-size:65px; font-weight:bold; text-align:center">
           Bridge
           </p>
        <img class="title-img" src="../assets/community1.png"/>
@@ -105,7 +101,7 @@ export default {
 </script>
 <style scoped>
 #Template1{
-        font-family: Helvetica;
+        font-family: Open-Sans;
     }
     .title-img {
       height: 200px;

@@ -6,11 +6,7 @@
         "age": 50,
         "self_intro": "Hi! I’m Som, a recent high school graduate. I love playing and watching baseball and I love cats!",
         "img": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-        "interests": [
-            "Victorian Literature", 
-            "English",
-            "Life"
-        ],
+        "hobbies": ["baseball", "cats"],
         "title":"peer"
     },
     {
@@ -19,10 +15,7 @@
         "age": 60,
         "self_intro": "Hi! I’m Hey, my name is Andre, I am a psychology major in university and love helping out people and playing chess.",
         "img": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-        "interests": [
-            "Competitive Swimming",
-            "Woodworking"
-        ],
+        "hobbies": ["baseball", "cats"],
         "title":"peer"
     },
     {
@@ -31,11 +24,7 @@
         "age": 70,
         "self_intro": "Hi! I am a graduate school in history and I love crime shows!",
         "img":"https://semantic-ui.com/images/avatar2/large/matthew.png",
-        "interests":[
-            "History",
-            "Roald Dahl",
-            "Psychology"
-        ],
+        "hobbies":["baseball", "cats"],
         "title":"peer"
     },
     {
@@ -44,36 +33,25 @@
         "age": 75,
         "self_intro":  "Hi! I am a graduate school in history and I love crime shows!",
         "img": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-        "interests": [
-            "Stuff",
-            "Ok",
-            "Life"
-        ],
+        "hobbies": ["baseball", "cats"],
         "title":"peer"
     },
     {
         "id": 5,
         "name": "Dolly-Anna Ray",
-        "age": 25,
+        "age": 55,
         "self_intro": "A woman with wisdom",
         "img": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-        "interests": [
-            "Victorian Literature",
-            "cats"
-        ],
+        "hobbies": ["baseball", "cats"],
         "title":"Volunteer"
     },
     {
         "id":6,
         "name": "Jim Sanford",
-        "age": 28,
+        "age": 60,
         "self_intro":  "A woman with wisdom",
         "img": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-        "interests": [
-            "English", 
-            "cats",
-            "Life"
-        ],
+        "hobbies": ["baseball", "cats"],
         "title":"Volunteer"
     }
   ]

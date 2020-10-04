@@ -2,10 +2,8 @@
   <div class="navigator" role="navigation">
     <v-app-bar app class = "light-blue white--text font-weight-bold">
             <v-icon large left color="white">mdi-sprout</v-icon>
-            <v-spacer></v-spacer><v-spacer></v-spacer>
-          
             <!--Breadcrumb-->
-            <span class="breadcrumb light-blue font-weight-bold">
+            <span class="breadcrumb">
               <ul>
                 <li
                   v-for="(breadcrumb, idx) in breadcrumbList"

@@ -5,15 +5,12 @@ const app = express();
 const cors = require('cors');
 const morgan =require('morgan');
 const bodyParser = require('body-parser')
-const bucketListItemRoutes = require('./routes/api/bucketListItems')
 
 // allow us to make ajax
 app.use(cors());
 
 // log every request to the server in the console
 app.use(morgan('tiny'));
-
-bringo/package.json
 
 // parse json
 app.use(bodyParser.json());
@@ -29,7 +26,6 @@ mongoose
     .then(() => console.log('MongoDB database Connected...'))
     .catch((err) => console.log(err))
 
-    app.use('/api/bucketListItems', bucketListItemRoutes)
-    app.get('/', (req,res)=>res.send('Hello world!'));
+app.get('/', (req,res)=>res.send('Hello world!'));
 
 app.listen(PORT, ()=>console.log(`App listening at http://localhost:${PORT}`));
