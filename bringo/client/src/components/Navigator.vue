@@ -1,24 +1,22 @@
 <template>
   <div class="navigator" role="navigation">
-    <v-app-bar app align="center" class="light-blue white--text font-weight-bold">
-      <v-icon large left color="white">mdi-sprout</v-icon>  
-      <v-header>Bringo</v-header>  
-      <v-spacer></v-spacer><v-spacer></v-spacer>
-      <!--Breadcrumb-->
-      <span class="breadcrumb light-blue font-weight-bold" style="vertical-align: middle">
-        <ul>
-          <li 
-            v-for="(breadcrumb, idx) in breadcrumbList"
-            :key="idx"
-            @click="routeTo(idx)"
-            style="vertical-align: middle"
-            :class="{'linked': !!breadcrumb.link}">
-            {{ breadcrumb.name }}
-          </li>
-        </ul>
-      </span>
-      <v-btn to="/">Log out</v-btn>
-    </v-app-bar>
+    <v-app-bar app class = "light-blue white--text font-weight-bold">
+            <v-icon large left color="white">mdi-sprout</v-icon>
+            <v-spacer></v-spacer><v-spacer></v-spacer>
+          
+            <!--Breadcrumb-->
+            <span class="breadcrumb light-blue font-weight-bold">
+              <ul>
+                <li
+                  v-for="(breadcrumb, idx) in breadcrumbList"
+                  :key="idx"
+                  @click="routeTo(idx)"
+                  :class="{'linked': !!breadcrumb.link}">
+                  {{ breadcrumb.name }}
+                </li>
+              </ul>
+            </span>
+        </v-app-bar>
   </div>
 </template>
 
@@ -54,21 +52,25 @@ export default {
   ul > li {
     display: flex;
     float: left;
+    height: 10px;
     width: auto;
     color: $default;
     font-weight: bold;
+    font-size: .8em;
     cursor: default;
     align-items: center;
   }
   ul > li:not(:last-child)::after {
     content: '/';
     float: right;
+    font-size: .8em;
     margin: 0 .5em;
     color: $light-default;
     cursor: default;
   }
   .linked {
     cursor: pointer;
+    font-size: 1em;
     font-weight: normal;
   }
 </style>

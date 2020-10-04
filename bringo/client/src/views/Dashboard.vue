@@ -89,17 +89,27 @@
             </v-overlay>
             <v-container>
                 <!--Profile-->
-                <v-card :loading="loading" class="mx-auto my-12" max-width="1000">
+                <v-card
+                    :loading="loading"
+                    class="mx-auto my-12"
+                    max-width="1000"
+                >
                     <v-card-title>
                         Your Profile
                         <v-spacer></v-spacer>
                         <!--Edit button for Profile-->
-                        <v-btn color="deep-purple accent-4 white--text" @click="toggleEdit()">
+                        <v-btn 
+                            color="deep-purple accent-4 white--text" 
+                            @click="toggleEdit()"
+                        >
                             {{ editProfile ? 'Confirm Profile Changes' : 'Edit Profile Info' }}
                         </v-btn>
                     </v-card-title>
                     <v-card-text>
-                        <v-row align="center" class="mx-0">
+                        <v-row
+                            align="center"
+                            class="mx-0"
+                        >
                         </v-row>
                         <div class="my-4 subtitle-1">
                             John Doe
@@ -111,15 +121,30 @@
                         </v-card-text>
                     <v-divider class="mx-4"></v-divider>
                     <v-card-text>
-                        <v-chip-group v-model="selection" active-class="deep-purple accent-4 white--text" column>
+                        <v-chip-group
+                            v-model="selection"
+                            active-class="deep-purple accent-4 white--text"
+                            column
+                        >
                             <v-row align="center">
                                 <v-card-title>Interests: </v-card-title>
-                                <v-chip v-for="interest in interests" :key="interest">
+                                <v-chip v-for="interest in interests" :key="interest"
+                                >
                                     {{interest}}
                                 </v-chip>
                                 <v-fab-transition>
-                                <v-chip v-if="editProfile" id="newChipButton" @click="displayNewChip()">
-                                    <input type="text" id="newChipInput" placeholder="Add New Label Here" style="display:none" @keydown.enter="addNewChip()">
+                                <v-chip 
+                                    v-if="editProfile"
+                                    id="newChipButton"
+                                    @click="displayNewChip()"
+                                >
+                                    <input 
+                                        type="text" 
+                                        id="newChipInput" 
+                                        placeholder="Add New Label Here" 
+                                        style="display:none"
+                                        @keydown.enter="addNewChip()"
+                                    >
                                     <v-icon>mdi-plus</v-icon>
                                 </v-chip>
                                 </v-fab-transition>
@@ -162,7 +187,13 @@
                                     Upcoming Events
                                 </v-subheader>
                                 <v-list-item-group>
-                                    <v-list-item v-for="event in events" :key="event" @mouseover="attendHover=true" @mouseleave="attendHover=false" to="calling">
+                                    <v-list-item
+                                    v-for="event in events"
+                                    :key="event"
+                                    @mouseover="attendHover=true"
+                                    @mouseleave="attendHover=false" 
+                                    to="calling"
+                                    >
                                         <v-list-item-icon>
                                             <v-icon>mdi-clock</v-icon>
                                         </v-list-item-icon>
@@ -192,15 +223,14 @@
 
 <script>
 import Wrapper from '../components/Wrapper'
-import usersJson from './users.json'
 
 export default {
     name: 'Dashboard',
     components: {
       Wrapper,
     },
-    data: ()=> ({
-        
+    data: function () {
+        return {
             overlay: false,
             overlay_page: 0,
             editProfile: false,
@@ -209,9 +239,8 @@ export default {
             interests: ["Literature", "Book Illustration", "Roald Dahl"],
             events: ["7:30PM EST Sept 30 - Maria Li", 
                     "10:00AM EST Oct 02 - Daniel Callaway"],
-
-        users: usersJson
-    }),
+        }
+    },
     methods: {
         toggleEdit: function() {
             if (this.editProfile) {
