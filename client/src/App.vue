@@ -48,6 +48,6 @@ export default {
 
 <style lang="scss">
   #app{
-    background-color:rgb(215, 238, 245);    
+    background-color:rgb(215, 238, 245);
   }
 </style>
