@@ -2,7 +2,7 @@
     <wrapper>
         <v-content>
             <v-container>
-                <vue-calendly url="https://calendly.com/joyliu-q" :height="600"></vue-calendly>
+                <vue-calendly url="" :height="600"></vue-calendly>
                 <v-btn large to="dashboard">Back</v-btn>
                 <div class="fill-height">
                     <v-col>
