@@ -114,6 +114,10 @@ Vue.use(VueRouter)
       ]
     },
   },
+  { 
+    path: '*', 
+    redirect: '/404' 
+  },  
 ]
 
 const router = new VueRouter({
