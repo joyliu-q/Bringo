@@ -3,9 +3,10 @@
         <v-content>
             <v-hover>
                 <template v-slot:default="{ hover }">
-                    <v-card
+                    <div
                         class="mx-auto"
                         max-width="100%"
+                        style="background-color: #FEFFC0"
                     >
                         <v-img src="../assets/404.svg"></v-img>
                         <v-fade-transition>
@@ -19,7 +20,7 @@
                                 </v-card-actions>
                             </v-overlay>
                         </v-fade-transition>
-                    </v-card>
+                    </div>
                 </template>
             </v-hover>
         </v-content>
